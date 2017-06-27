@@ -179,6 +179,8 @@ DELETE FROM `users` WHERE confirmed = 0; -- Kitöröl minden sort ahol a confirm
 
 ## Adatok lekérdezése
 
+https://dev.mysql.com/doc/refman/5.7/en/select.html
+
 ```mysql
 SELECT `mezo1`, `mezo2` FROM `tabla_neve`
 ```
@@ -196,8 +198,6 @@ SELECT * FROM `tabla_neve` AS t1;
 SELECT * FROM `tabla_neve` t1;
 ```
 ### Adatok szűrése
-
-https://dev.mysql.com/doc/refman/5.7/en/select.html
 
 Adatok szűrésére a `WHERE` kulcsszó után lehet feltételeket írni. Ha több feltétel van akkor meg kell adni ezek relációját (`AND`, `OR`)
 
