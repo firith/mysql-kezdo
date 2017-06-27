@@ -16,7 +16,7 @@ SHOW DATABASES;
 ## Adatbázis kiválasztása
 
 ```mysql
-use adatbazis_neve;
+USE adatbazis_neve;
 ```
 
 ## Táblák kilistázása
