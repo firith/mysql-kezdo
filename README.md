@@ -209,3 +209,26 @@ WHERE `mezo1` > 100 AND `mezo2` <> 2
 
 Használható operátorok és függvények: https://dev.mysql.com/doc/refman/5.7/en/functions.html
 
+### Eredmény sorrendkének megadása
+
+```mysql
+SELECT * FROM `tabla_neve` WHERE ...ORDER BY `mezo1` ASC, `mezo2` DESC;
+```
+
+Ha nincs megadva sorrend, akkor a lekérdezés eredményének sorrendje előre nem meghatározható.
+
+Irányok:
+* `ASC`: növekvő
+* `DESC`: csökkenő
+
+### Találatok mennyiségének limitálása
+
+```mysql
+SELECT * FROM `tabla_neve` LIMIT 20;
+SELECT * FROM `tabla_neve` LIMIT 10, 20;
+SELECT * FROM `tabla_neve` LIMIT 20 OFFSET 10
+```
+
+Lekérdez 10 sort, a kezdő sor el van tolva 20-al (21-től 30-ig kérdez le)
+
+
