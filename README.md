@@ -113,7 +113,7 @@ https://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html
 
 * PRIMARY KEY(\`mezo_neve\`,...): az adott mező lesz a tábla egyedi azonosítója
 * UNIQUE KEY \`kulcs_neve\` (\`mezo_neve\`, ...) egyedi a táblában adott értékkel legfeljebb csak egy 1 rekord lehet
-* KEY \`kulcs_neve\` (\`mezo_neve\`) indexet hoz létre, gyorsítja az olyan lekérdezéseket amiknél szűrve van ennek a mezőnek az értékére
+* KEY \`kulcs_neve\` (\`mezo_neve\`) indexet hoz létre, gyorsítja az olyan lekérdezéseket amiknél szűrve van ennek a mezőnek az értéke
 
 ### Példa 
 
