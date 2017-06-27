@@ -51,13 +51,56 @@ https://dev.mysql.com/doc/refman/5.7/en/create-table.html
 
 ```mysql
 CREATE TABLE `tabla_neve˙ (
-  ...
+  [mezok, kulcsok, indexek]
 );
 
 CREATE TABLE IF NOT EXISTS `tabla_neve˙ (
-  ...
+  [mezok, kulcsok, indexek]
 );
 ```
+
+## Mező definiálása
+
+```mysql
+CREATE TABLE `tabla_neve` (
+  `mezo_neve` TIPUSA(HOSSZA) egyeb_opciok,
+  `masik_mezo` TIPUSA(HOSSZA) egyeb_opciok
+);
+```
+
+### Mező típusok
+
+#### Numerikus
+
+https://dev.mysql.com/doc/refman/5.7/en/numeric-type-overview.html
+
+* TINYINT [-128..127, 0..255]
+* SMALLINT [-32768..32767, 0..65535]
+* INT [-2147483648..2147483647, 0..4294967295]
+* BIGINT [-9223372036854775808..9223372036854775807,0..18446744073709551615]
+* DECIMAL(digit, scale): digit: összes számjegy, scale: tizedespont utáni számok
+* FLOAT(digit, scale)
+
+Módosítók:
+* UNSIGNED: Nem tartalmaz negítív értéket
+* ZEROFILL: balról paddingel nullákkal
+
+#### Dátum
+
+https://dev.mysql.com/doc/refman/5.7/en/date-and-time-type-overview.html
+
+* DATE YYYY-MM-DD
+* TIME HH:MM:SS
+* DATE TIME YYYY-MM-DD HH:MM:SS
+
+#### String
+
+https://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html
+
+* CHAR(hossz): fix hosszúságú szöveg
+* VARCHAR(maxhossz): változó hosszúságú szöveg
+* TEXT: változó hosszúságú szöveg (max 65,535 karakter)
+* ENUM: felsorolás, értéke előre meghatározott értékek közül választható, nem ajánlott használni.
 
 ## Tábla adatainak kiürítése
 
