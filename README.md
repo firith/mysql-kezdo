@@ -145,3 +145,28 @@ DROP TABLE `tabla_neve`;
 
 DROP TABLE IF EXISTS `tabla_neve`;
 ```
+
+## Műveletek adatokkal
+
+### Rekord beszúrása
+
+```mysql
+INSERT INTO `table_neve` (`mezo1`, `mezo2`) VALUES ('mezo1_ertek', 'mezo2_ertek');
+INSERT INTO `users` (`name`, `email`, `birthdate`) VALUES ('Simon Balázs', 'balazs.simon@intren.hu', '1984-03-18');
+```
+
+### Rekord módosítása
+
+```mysql
+UPDATE `table_name` SET `mezo1`='mezo1_uj_ertek', `mezo2_uj_ertek` WHERE feltetel;
+UPDATE users SET `name`='Simon Balázs Miklós' WHERE email LIKE 'balazs.simon@intren.hu';
+```
+
+Ha nem adunk meg feltételt, akkor a tábla összes rekordját módosítani fogja!
+
+### Rekord törlése
+
+```mysql
+DELETE FROM `tabla_neve` WHERE feletetel;
+DELETE FROM `users` WHERE confirmed = 0; -- Kitöröl minden sort ahol a confirmed oszlop értéke 0
+```
