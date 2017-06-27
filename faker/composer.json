@@ -1,0 +1,12 @@
+{
+    "name": "firith/faker",
+    "authors": [
+        {
+            "name": "Simon Balázs",
+            "email": "balazs.simon@intren.hu"
+        }
+    ],
+    "require": {
+        "fzaninotto/faker": "^1.6"
+    }
+}
