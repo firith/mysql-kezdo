@@ -74,46 +74,46 @@ CREATE TABLE `tabla_neve` (
 
 https://dev.mysql.com/doc/refman/5.7/en/numeric-type-overview.html
 
-* TINYINT [-128..127, 0..255]
-* SMALLINT [-32768..32767, 0..65535]
-* INT [-2147483648..2147483647, 0..4294967295]
-* BIGINT [-9223372036854775808..9223372036854775807,0..18446744073709551615]
-* DECIMAL(digit, scale): digit: összes számjegy, scale: tizedespont utáni számok
-* FLOAT(digit, scale)
+* `TINYINT`: [-128..127, 0..255]
+* `SMALLINT`: [-32768..32767, 0..65535]
+* `INT`: [-2147483648..2147483647, 0..4294967295]
+* `BIGINT`: [-9223372036854775808..9223372036854775807,0..18446744073709551615]
+* `DECIMAL(digit, scale)`: digit: összes számjegy, scale: tizedespont utáni számok
+* `FLOAT(digit, scale)`
 
 Módosítók:
-* UNSIGNED: Nem tartalmaz negítív értéket
-* ZEROFILL: balról paddingel nullákkal
+* `UNSIGNED`: Nem tartalmaz negítív értéket
+* `ZEROFILL`: balról paddingel nullákkal
 
 #### Dátum
 
 https://dev.mysql.com/doc/refman/5.7/en/date-and-time-type-overview.html
 
-* DATE YYYY-MM-DD
-* TIME HH:MM:SS
-* DATE TIME YYYY-MM-DD HH:MM:SS
+* `DATE`: YYYY-MM-DD
+* `TIME`: HH:MM:SS
+* `DATE`: TIME YYYY-MM-DD HH:MM:SS
 
 #### String
 
 https://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html
 
-* CHAR(hossz): fix hosszúságú szöveg
-* VARCHAR(maxhossz): változó hosszúságú szöveg
-* TEXT: változó hosszúságú szöveg (max 65,535 karakter)
-* ENUM: felsorolás, értéke előre meghatározott értékek közül választható, nem ajánlott használni.
+* `CHAR(hossz)`: fix hosszúságú szöveg
+* `VARCHAR(maxhossz)`: változó hosszúságú szöveg
+* `TEXT`: változó hosszúságú szöveg (max 65,535 karakter)
+* `ENUM`: felsorolás, értéke előre meghatározott értékek közül választható, nem ajánlott használni.
 
 ### Egyéb opciók
 
-* NOT NULL: a mező értéke nem lehet NULL
-* DEFAULT 'alapertelmezes': Ha nincs megadva érték a mezőnek a rekord létrehozásakor akkor a default értéket fogja felvenni
-* AUTO_INCREMENT: id mezőnél használjuk, olyan default értéket jelent ami beszúrás után egyel nő.
-* UNIQUE: egyedi, a táblában adott értékkel csak legfeljebb 1 rekord lehet (UNIQUE indexet hoz létre)
+* `NOT NULL`: a mező értéke nem lehet NULL
+* `DEFAULT 'alapertelmezes`': Ha nincs megadva érték a mezőnek a rekord létrehozásakor akkor a default értéket fogja felvenni
+* `AUTO_INCREMENT`: id mezőnél használjuk, olyan default értéket jelent ami beszúrás után egyel nő.
+* `UNIQUE`: egyedi, a táblában adott értékkel csak legfeljebb 1 rekord lehet (UNIQUE indexet hoz létre)
 
 ### Kulcsok
 
-* PRIMARY KEY(`mezo_neve`,...): az adott mező lesz a tábla egyedi azonosítója
-* UNIQUE KEY `kulcs_neve` (`mezo_neve`, ...) egyedi a táblában adott értékkel legfeljebb csak egy 1 rekord lehet
-* KEY `kulcs_neve` (`mezo_neve`) indexet hoz létre, gyorsítja az olyan lekérdezéseket amiknél szűrve van ennek a mezőnel az értékére
+* PRIMARY KEY(\`mezo_neve\`,...): az adott mező lesz a tábla egyedi azonosítója
+* UNIQUE KEY \`kulcs_neve\` (\`mezo_neve\`, ...) egyedi a táblában adott értékkel legfeljebb csak egy 1 rekord lehet
+* KEY \`kulcs_neve\` (\`mezo_neve\`) indexet hoz létre, gyorsítja az olyan lekérdezéseket amiknél szűrve van ennek a mezőnel az értékére
 
 ## Tábla adatainak kiürítése
 
