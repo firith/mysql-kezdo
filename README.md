@@ -232,3 +232,38 @@ SELECT * FROM `tabla_neve` LIMIT 20 OFFSET 10
 Lekérdez 10 sort, a kezdő sor el van tolva 20-al (21-től 30-ig kérdez le)
 
 
+### Aggregátor függvények
+
+https://dev.mysql.com/doc/refman/5.7/en/group-by-functions.html
+
+Csoportosított sorok halmazain működik és egyetlen eredményt ad vissza csoportonként
+
+pl:
+* `SUM(mezo_neve)`: összegzi a mezők értékét
+* `MIN(mezo_neve)`: visszaadja a legkisebb mezőértéket
+* `MAX(mezo_neve)`: visszaadja a legkisebb mezőértéket
+* `COUNT(mezo_neve)`: Megszámolja a nem null értékű mezőket
+
+```mysql
+SELECT MIN(`mezo_neve`) FROM `tabla_neve`;
+SELECT MIN(`birthdate`) FROM `users`;
+SELECT COUNT(`id`) FROM `users`
+```
+
+### Csoport képzése
+
+```mysql
+SELECT * FROM `tabla_neve` GROUP BY `mezo_neve`;
+SELECT `confirmed`, MIN(`birthdate`) FROM `users` GROUP BY `confirmed`;
+```
+
+### Having
+
+Lekérdezett eredényeken való szűrés
+
+```mysql
+SELECT ... FROM `tabla_neve` GROUP BY `mezo1` HAVING feltetel;
+SELECT `favorite_number`, COUNT(`id`) AS darab FROM `users`
+GROUP BY `favorite_number`
+HAVING darab > 10;
+```
