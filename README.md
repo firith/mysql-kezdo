@@ -115,6 +115,21 @@ https://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html
 * UNIQUE KEY \`kulcs_neve\` (\`mezo_neve\`, ...) egyedi a táblában adott értékkel legfeljebb csak egy 1 rekord lehet
 * KEY \`kulcs_neve\` (\`mezo_neve\`) indexet hoz létre, gyorsítja az olyan lekérdezéseket amiknél szűrve van ennek a mezőnel az értékére
 
+### Példa 
+
+```mysql
+CREATE TABLE users (
+	`id` BIGINT NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(60) NOT NULL,
+	`email` VARCHAR(50) NOT NULL,
+	`birthdate` DATE NOT NULL,
+	`confirmed` TINYINT NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	KEY `idx_name` (`name`),
+	UNIQUE KEY `uni_email` (`email`)
+);
+```
+
 ## Tábla adatainak kiürítése
 
 Az AUTO INCREMENT mező számlálója visszaáll 1-re.
