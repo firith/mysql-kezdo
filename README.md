@@ -150,12 +150,16 @@ DROP TABLE IF EXISTS `tabla_neve`;
 
 ### Rekord beszúrása
 
+https://dev.mysql.com/doc/refman/5.7/en/insert.html
+
 ```mysql
 INSERT INTO `table_neve` (`mezo1`, `mezo2`) VALUES ('mezo1_ertek', 'mezo2_ertek');
 INSERT INTO `users` (`name`, `email`, `birthdate`) VALUES ('Simon Balázs', 'balazs.simon@intren.hu', '1984-03-18');
 ```
 
 ### Rekord módosítása
+
+https://dev.mysql.com/doc/refman/5.7/en/update.html
 
 ```mysql
 UPDATE `table_name` SET `mezo1`='mezo1_uj_ertek', `mezo2_uj_ertek` WHERE feltetel;
@@ -166,7 +170,42 @@ Ha nem adunk meg feltételt, akkor a tábla összes rekordját módosítani fogj
 
 ### Rekord törlése
 
+https://dev.mysql.com/doc/refman/5.7/en/delete.html
+
 ```mysql
 DELETE FROM `tabla_neve` WHERE feletetel;
 DELETE FROM `users` WHERE confirmed = 0; -- Kitöröl minden sort ahol a confirmed oszlop értéke 0
 ```
+
+## Adatok lekérdezése
+
+```mysql
+SELECT `mezo1`, `mezo2` FROM `tabla_neve`
+```
+
+Ha minden mező értékét le akarjuk kérdezni, akkor nincs szükség egyesével felsorolni, ehelyett használhatjuk a `*` karaktert:
+
+```mysql
+SELECT * FROM `tabla_neve`
+```
+
+Lehetőség van a tábla nevére aliast létrehozni, ez akkor hasznos, ha több táblát érint a lekérdezés (lásd később):
+
+```mysql
+SELECT * FROM `tabla_neve` AS t1;
+SELECT * FROM `tabla_neve` t1;
+```
+### Adatok szűrése
+
+https://dev.mysql.com/doc/refman/5.7/en/select.html
+
+Adatok szűrésére a `WHERE` kulcsszó után lehet feltételeket írni. Ha több feltétel van akkor meg kell adni ezek relációját (`AND`, `OR`)
+
+```mysql
+SELECT * FROM `tabla_neve`
+WHERE `mezo1` > 100 AND `mezo2` <> 2
+-- minden olyan sor ahol a `mezo1` oszlop értéke nagyobb mint 100 és a `mezo2` oszlop értéke nem 2 
+```
+
+Használható operátorok és függvények: https://dev.mysql.com/doc/refman/5.7/en/functions.html
+
