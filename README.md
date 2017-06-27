@@ -102,6 +102,19 @@ https://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html
 * TEXT: változó hosszúságú szöveg (max 65,535 karakter)
 * ENUM: felsorolás, értéke előre meghatározott értékek közül választható, nem ajánlott használni.
 
+### Egyéb opciók
+
+* NOT NULL: a mező értéke nem lehet NULL
+* DEFAULT 'alapertelmezes': Ha nincs megadva érték a mezőnek a rekord létrehozásakor akkor a default értéket fogja felvenni
+* AUTO_INCREMENT: id mezőnél használjuk, olyan default értéket jelent ami beszúrás után egyel nő.
+* UNIQUE: egyedi, a táblában adott értékkel csak legfeljebb 1 rekord lehet (UNIQUE indexet hoz létre)
+
+### Kulcsok
+
+* PRIMARY KEY(`mezo_neve`,...): az adott mező lesz a tábla egyedi azonosítója
+* UNIQUE KEY `kulcs_neve` (`mezo_neve`, ...) egyedi a táblában adott értékkel legfeljebb csak egy 1 rekord lehet
+* KEY `kulcs_neve` (`mezo_neve`) indexet hoz létre, gyorsítja az olyan lekérdezéseket amiknél szűrve van ennek a mezőnel az értékére
+
 ## Tábla adatainak kiürítése
 
 Az AUTO INCREMENT mező számlálója visszaáll 1-re.
