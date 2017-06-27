@@ -159,7 +159,7 @@ INSERT INTO `users` (`name`, `email`, `birthdate`) VALUES ('Simon Balázs', 'bal
 
 ```mysql
 UPDATE `table_name` SET `mezo1`='mezo1_uj_ertek', `mezo2_uj_ertek` WHERE feltetel;
-UPDATE users SET `name`='Simon Balázs Miklós' WHERE email LIKE 'balazs.simon@intren.hu';
+UPDATE `users` SET `name`='Simon Balázs Miklós' WHERE email LIKE 'balazs.simon@intren.hu';
 ```
 
 Ha nem adunk meg feltételt, akkor a tábla összes rekordját módosítani fogja!
