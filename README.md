@@ -146,9 +146,9 @@ DROP TABLE `tabla_neve`;
 DROP TABLE IF EXISTS `tabla_neve`;
 ```
 
-## Műveletek adatokkal
+# Műveletek adatokkal
 
-### Rekord beszúrása
+## Rekord beszúrása
 
 https://dev.mysql.com/doc/refman/5.7/en/insert.html
 
@@ -157,7 +157,7 @@ INSERT INTO `table_neve` (`mezo1`, `mezo2`) VALUES ('mezo1_ertek', 'mezo2_ertek'
 INSERT INTO `users` (`name`, `email`, `birthdate`) VALUES ('Simon Balázs', 'balazs.simon@intren.hu', '1984-03-18');
 ```
 
-### Rekord módosítása
+## Rekord módosítása
 
 https://dev.mysql.com/doc/refman/5.7/en/update.html
 
@@ -168,7 +168,7 @@ UPDATE `users` SET `name`='Simon Balázs Miklós' WHERE email LIKE 'balazs.simon
 
 Ha nem adunk meg feltételt, akkor a tábla összes rekordját módosítani fogja!
 
-### Rekord törlése
+## Rekord törlése
 
 https://dev.mysql.com/doc/refman/5.7/en/delete.html
 
