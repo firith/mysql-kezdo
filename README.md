@@ -119,7 +119,7 @@ https://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html
 
 ```mysql
 CREATE TABLE users (
-	`id` BIGINT NOT NULL AUTO_INCREMENT,
+	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(60) NOT NULL,
 	`email` VARCHAR(50) NOT NULL,
 	`birthdate` DATE NOT NULL,
@@ -144,6 +144,32 @@ TRUNCATE TABLE `tabla_neve`;
 DROP TABLE `tabla_neve`;
 
 DROP TABLE IF EXISTS `tabla_neve`;
+```
+
+## Tábla struktúra módosítása
+
+https://dev.mysql.com/doc/refman/5.7/en/alter-table.html
+
+### Mező hozzáadása
+
+```mysql
+ALTER TABLE `tabla_neve` ADD  `mezo_neve` TIPUS(hossz) modositok;
+ALTER TABLE `users` ADD `my_favorite_number` TINYINT;
+ALTER TABLE `users` ADD `confirmed_at` DATETIME AFTER `confirmed`;
+```
+
+### Mező módosítása
+
+```mysql
+ALTER TABLE `tabla_neve` CHANGE `mezo_regi_neve` `mezo_uj_neve` TIPUS(hossz) modositok;
+ALTER TABLE `users` CHANGE `my_favorite_number` `favorite_number` TINYINT;
+```
+
+### Mező törlése
+
+```mysql
+ALTER TABLE `tabla_neve` DROP `mezo_neve`;
+ALTER TABLE `users` DROP `confirmed_at`;
 ```
 
 # Műveletek adatokkal
@@ -266,4 +292,60 @@ SELECT ... FROM `tabla_neve` GROUP BY `mezo1` HAVING feltetel;
 SELECT `favorite_number`, COUNT(`id`) AS darab FROM `users`
 GROUP BY `favorite_number`
 HAVING darab > 10;
+```
+
+## Műveletek több táblával
+
+### Idegen kulcsok
+
+Olyan mező ami egy másik tábla egy sorára referál.
+Általános elnevezési szabály: a hivatkozott tábla neve egyesszámban és utána '_id'.
+Az idegen kulcsra mindig hozzunk létre indexet!
+
+Haladó: https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html
+
+Példa
+
+```mysql
+CREATE TABLE `comments` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT UNSIGNED NOT NULL,
+  `message` TEXT NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY idx_user_id (`user_id`)
+);
+```
+
+### Lekérdezések
+
+https://dev.mysql.com/doc/refman/5.7/en/join.html
+
+#### JOIN
+
+Táblák összefűzése úgy, hogy csak olyan sorok kerülnek az eredménybe, amikhez mindkét táblában van adat.
+
+```
+JOIN `kapcsolodo_tabla_neve` ON feltetel
+```
+
+pl:
+```mysql
+SELECT * FROM `users`
+JOIN `comments` ON `comments`.`user_id` = `users`.id
+ORDER BY `users`.id ASC
+```
+
+#### LEFT JOIN
+
+```
+LEFT JOIN `kapcsolodo_tabla_neve` ON feltetel
+```
+
+Táblák összefőzése úgy, hogy az olyan sorok is bekerülnek az eredménybe, amihez nincs a csatolt táblában adat.
+
+pl:
+```mysql
+SELECT * FROM `users`
+LEFT JOIN `comments` ON `comments`.`user_id` = `users`.id
+ORDER BY `users`.id ASC
 ```
