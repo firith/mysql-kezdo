@@ -259,7 +259,7 @@ SELECT `confirmed`, MIN(`birthdate`) FROM `users` GROUP BY `confirmed`;
 
 ### Having
 
-Lekérdezett eredényeken való szűrés
+Lekérdezett eredményen való szűrés
 
 ```mysql
 SELECT ... FROM `tabla_neve` GROUP BY `mezo1` HAVING feltetel;
