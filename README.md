@@ -349,3 +349,7 @@ SELECT * FROM `users`
 LEFT JOIN `comments` ON `comments`.`user_id` = `users`.id
 ORDER BY `users`.id ASC
 ```
+
+# Anyagok
+* https://www.libri.hu/konyv/michael_j_hernandez.adatbazistervezes.html
+* https://dev.mysql.com/doc/refman/5.7/en/
