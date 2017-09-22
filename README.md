@@ -191,6 +191,8 @@ https://dev.mysql.com/doc/refman/5.7/en/insert.html
 INSERT INTO `tabla_neve` (`mezo1`, `mezo2`) VALUES ('mezo1_ertek', 'mezo2_ertek');
 INSERT INTO `users` (`name`, `email`, `birthdate`) VALUES ('Simon Balázs', 'balazs.simon@intren.hu', '1984-03-18');
 
+-- MySQL specifikus jelölésmód:
+
 INSERT INTO `tabla_neve` SET mezo1='mezo_ertek1', mezo2='mezo_ertek2';
 INSERT INTO `users` SET name='Simon Balázs', 'balazs.simon@intren.hu', '1984-03-18';
 ```
