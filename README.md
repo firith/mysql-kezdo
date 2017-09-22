@@ -253,8 +253,9 @@ Használható operátorok és függvények: https://dev.mysql.com/doc/refman/5.7
 SELECT * FROM `tabla_neve` WHERE ... ORDER BY `mezo1` ASC, `mezo2` DESC;
 ```
 
-Ha nincs megadva sorrend, akkor a lekérdezés eredményének sorai a táblába 
-való beszúrás sorrendjében listázódnak.
+Ha nincs megadva sorrend, akkor a lekérdezés eredményének sorainak sorrendje
+implementáció-függő. A legtöbb esetben a MySQL a beszúrás sorrendjében,
+szekvenciálisan adja vissza a sorokat, erre azonban garancia nincsen.
 
 Irányok:
 * `ASC`: növekvő
