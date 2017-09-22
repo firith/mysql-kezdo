@@ -24,6 +24,15 @@ USE adatbazis_neve;
 ```mysql
 SHOW TABLES;
 ```
+## Egy tábla mezőinek kilistázása
+
+```mysql
+DESCRIBE `tabla_neve`;
+DESCRIBE `users`;
+
+SHOW FIELDS FROM `tabla_neve`;
+SHOW FIELDS FROM `users`;
+```
 
 ## Adatbázis létrehozása
 
@@ -105,7 +114,7 @@ https://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html
 ### Egyéb opciók
 
 * `NOT NULL`: a mező értéke nem lehet NULL
-* `DEFAULT 'alapertelmezes`': Ha nincs megadva érték a mezőnek a rekord létrehozásakor akkor a default értéket fogja felvenni
+* `DEFAULT 'alapertelmezes`': Ha nincs megadva érték a mezőnek a rekord létrehozásakor akkor az itt megadott értéket fogja felvenni
 * `AUTO_INCREMENT`: id mezőnél használjuk, olyan default értéket jelent ami beszúrás után egyel nő.
 * `UNIQUE`: egyedi, a táblában adott értékkel csak legfeljebb 1 rekord lehet (UNIQUE indexet hoz létre)
 
@@ -179,8 +188,11 @@ ALTER TABLE `users` DROP `confirmed_at`;
 https://dev.mysql.com/doc/refman/5.7/en/insert.html
 
 ```mysql
-INSERT INTO `table_neve` (`mezo1`, `mezo2`) VALUES ('mezo1_ertek', 'mezo2_ertek');
+INSERT INTO `tabla_neve` (`mezo1`, `mezo2`) VALUES ('mezo1_ertek', 'mezo2_ertek');
 INSERT INTO `users` (`name`, `email`, `birthdate`) VALUES ('Simon Balázs', 'balazs.simon@intren.hu', '1984-03-18');
+
+INSERT INTO `tabla_neve` SET mezo1='mezo_ertek1', mezo2='mezo_ertek2';
+INSERT INTO `users` SET name='Simon Balázs', 'balazs.simon@intren.hu', '1984-03-18';
 ```
 
 ## Rekord módosítása
@@ -235,13 +247,14 @@ WHERE `mezo1` > 100 AND `mezo2` <> 2
 
 Használható operátorok és függvények: https://dev.mysql.com/doc/refman/5.7/en/functions.html
 
-### Eredmény sorrendkének megadása
+### Eredmény sorrendjének megadása
 
 ```mysql
-SELECT * FROM `tabla_neve` WHERE ...ORDER BY `mezo1` ASC, `mezo2` DESC;
+SELECT * FROM `tabla_neve` WHERE ... ORDER BY `mezo1` ASC, `mezo2` DESC;
 ```
 
-Ha nincs megadva sorrend, akkor a lekérdezés eredményének sorrendje előre nem meghatározható.
+Ha nincs megadva sorrend, akkor a lekérdezés eredményének sorai a táblába 
+való beszúrás sorrendjében listázódnak.
 
 Irányok:
 * `ASC`: növekvő
@@ -341,7 +354,7 @@ ORDER BY `users`.id ASC
 LEFT JOIN `kapcsolodo_tabla_neve` ON feltetel
 ```
 
-Táblák összefőzése úgy, hogy az olyan sorok is bekerülnek az eredménybe, amihez nincs a csatolt táblában adat.
+Táblák összefűzése úgy, hogy az olyan sorok is bekerülnek az eredménybe, amihez nincs a csatolt táblában adat.
 
 pl:
 ```mysql
